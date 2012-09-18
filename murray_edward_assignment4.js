@@ -32,7 +32,7 @@ var myLibrary = function(){
 	
 	//String Problem 3: Is the string a URL?.
 	function valUrl(url){
-		var urlFormat = new RegExp('^(https?:\/\/)?'+'((([a-z\d]([a-z\d-]*[a-z\d])*)\.)+[a-z]{2,}|'+'((\d{1,3}\.){3}\d{1,3}))'+'(\:\d+)?(\/[-a-z\d%_.~+]*)*'+'(\?[;&a-z\d%_.~+=-]*)?'+'(\#[-a-z\d_]*)?$','i');	
+		var urlFormat = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;	
 			if (urlFormat.test(url)){
 				return true;
 			} else {
@@ -42,7 +42,8 @@ var myLibrary = function(){
 	
 	return {
 		"valPhone": valPhone,
-		"valEmail": valEmail
+		"valEmail": valEmail,
+		"valUrl":   valUrl
 	};	
 };
 
@@ -53,3 +54,6 @@ console.log (newLib.valPhone("3216524845"));
 
 //Problem 2 Call:
 console.log (newLib.valEmail("edward@ampedmedia.com"));
+
+//Problem 3 Call:
+console.log (newLib.valUrl("http://www.test@test.com"));
