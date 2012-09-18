@@ -40,10 +40,20 @@ var myLibrary = function(){
 			};
 	};
 	
+	//String Problem 4: Title-case a string.
+	function splitTitleCase(string) {
+    	var test = string.split(/\s|_/);
+    		for(var i=0,l=test.length; i<l; i++) {
+	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : "");
+            };
+            	return test.join("");
+    };
+	
 	return {
 		"valPhone": valPhone,
 		"valEmail": valEmail,
-		"valUrl":   valUrl
+		"valUrl": valUrl,
+		"splitTitleCase": splitTitleCase
 	};	
 };
 
@@ -57,3 +67,6 @@ console.log (newLib.valEmail("edward@ampedmedia.com"));
 
 //Problem 3 Call:
 console.log (newLib.valUrl("http://www.test@test.com"));
+
+//Problem 4 Call:
+console.log (newLib.splitTitleCase("scalable data infrastructures"));
