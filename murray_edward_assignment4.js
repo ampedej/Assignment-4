@@ -50,11 +50,11 @@ var myLibrary = function(){
     };
 	
 	//---String Problem 5 (5): Change seperator.
-	function changeSep (seperator){
-		var test = seperator;
-		var newStr = test.replace (",", "/");
+	function changeSep (string,seperator){
+		var test = /\W/g;
+		var newStr = string.replace (test, seperator);
 		return newStr;
-	};// Can't get function to replace all seperators.
+	};
 	
 	//---Number Problem 1 (6): Specific number of decimal places
 	function numDecimals (currency){
@@ -118,7 +118,7 @@ console.log (newLib.valUrl("http://www.test@test.com"));
 console.log (newLib.splitTitleCase("scalable data infrastructures"));
 
 //Problem 5 Call:
-console.log (newLib.changeSep("a,b,c"));
+console.log (newLib.changeSep("a,b,c", "/"));
 
 //Problem 6 Call:
 console.log (newLib.numDecimals(2.1));
