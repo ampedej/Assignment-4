@@ -32,7 +32,7 @@ var myLibrary = function(){
 	
 	//---String Problem 3 (3): Is the string a URL?.
 	function valUrl(url){
-		var urlFormat = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;	
+		var urlFormat = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;	
 			if (urlFormat.test(url)){
 				return true;
 			} else {
@@ -42,9 +42,9 @@ var myLibrary = function(){
 	
 	//---String Problem 4 (4): Title-case a string.
 	function splitTitleCase(string) {
-    	var test = string.split(/\s|_/);
+    	var test = string.split(" ");
     		for(var i=0,l=test.length; i<l; i++) {
-	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : "");
+	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : " "); // Not sure if the methods in this function make up for the points i lost on Project 3.
             };
             return test.join("");
     };
@@ -72,6 +72,14 @@ var myLibrary = function(){
 			};
 	};
 	
+	//Number Problem 3 (8): Find the number of hours or days difference between two dates.
+	function daysUntil(date) {
+    	var newYears = date;
+    	today = new Date(2012, 9, 18);
+    	var one_day = 1000 * 60 * 60 * 24;
+    		console.log(Math.ceil((newYears.getTime() - today.getTime()) / (one_day)-3) + " days left until the New Year.");
+    }; //Had to add in a -3 to the math because for some reason it was off by three days. Couldn't figure out why??
+    
 	//---Returns
 	return {
 		"valPhone": valPhone,
@@ -80,7 +88,8 @@ var myLibrary = function(){
 		"splitTitleCase": splitTitleCase,
 		"changeSep": changeSep,
 		"numDecimals": numDecimals,
-		"fuzzMatch": fuzzMatch
+		"fuzzMatch": fuzzMatch,
+		"daysUntil": daysUntil
 	};	
 };
 
@@ -106,3 +115,6 @@ console.log (newLib.numDecimals(2.1));
 
 //Problem 7 Call:
 console.log (newLib.fuzzMatch(10,20,10));
+
+//Problem 8 Call:
+newLib.daysUntil(new Date(2013, 01, 01));
