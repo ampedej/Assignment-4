@@ -62,6 +62,16 @@ var myLibrary = function(){
 		return test;
 	};
 	
+	//Number Problem 2 (7): Fuzzy-match a number: is the number above or below a number within a certain percent?
+	function fuzzMatch (number,compare,percentage){
+		var test = (number/compare) * 100;
+			if ((number >= compare && test >= percentage) || (number < compare && test < percentage)){
+				return false;
+			} else {
+				return true;
+			};
+	};
+	
 	//---Returns
 	return {
 		"valPhone": valPhone,
@@ -69,7 +79,8 @@ var myLibrary = function(){
 		"valUrl": valUrl,
 		"splitTitleCase": splitTitleCase,
 		"changeSep": changeSep,
-		"numDecimals": numDecimals
+		"numDecimals": numDecimals,
+		"fuzzMatch": fuzzMatch
 	};	
 };
 
@@ -92,3 +103,6 @@ console.log (newLib.changeSep("a,b,c"));
 
 //Problem 6 Call:
 console.log (newLib.numDecimals(2.1));
+
+//Problem 7 Call:
+console.log (newLib.fuzzMatch(10,20,10));
