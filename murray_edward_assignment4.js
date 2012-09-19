@@ -32,7 +32,7 @@ var myLibrary = function(){
 	
 	//---String Problem 3 (3): Is the string a URL?.
 	function valUrl(url){
-		var urlFormat = /(http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;	
+		var urlFormat = /((ftp|https?):\/\/)?(www\.)?[a-z0-9\-\.]{3,}\.[a-z]{3}$/;	
 			if (urlFormat.test(url)){
 				return true;
 			} else {
@@ -44,15 +44,15 @@ var myLibrary = function(){
 	function splitTitleCase(string) {
     	var test = string.split(" ");
     		for(var i=0,l=test.length; i<l; i++) {
-	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : " "); // Not sure if the methods in this function make up for the points I lost on Project 3.
+	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : " ");//Makeup: methods, deliverable 3 
             };
             return test.join(" ");
     };
 	
-	//---String Problem 5 (5): Change seperator.
-	function changeSep (string,seperator){
+	//---String Problem 5 (5): Change separator.
+	function changeSep (string,separator){
 		var test = /\W/g;
-		var newStr = string.replace (test, seperator);
+		var newStr = string.replace (test, separator);
 		return newStr;
 	};
 	
@@ -73,11 +73,11 @@ var myLibrary = function(){
 	};
 	
 	//---Number Problem 3 (8): Find the number of hours or days difference between two dates.
-	function daysUntil(date) {
-    	var newYears = date;
-    	today = new Date(2012, 9, 18);
+	function daysUntil(date1, date2) {
+    	var today = date1,
+    		compareDate = date2;
     	var one_day = 1000 * 60 * 60 * 24;
-    		console.log(Math.ceil((newYears.getTime() - today.getTime()) / (one_day)-3) + " days left until the New Year.");
+    		console.log(Math.ceil((compareDate.getTime() - today.getTime()) / (one_day)));
     }; //Had to add in a -3 to the math because for some reason it was off by three days. Couldn't figure out why??
     
     //---Number Problem 4 (9): Given a string version of a number such as "42", return the value as an actual Number, such as 42.
@@ -112,7 +112,7 @@ console.log (newLib.valPhone("3216524845"));
 console.log (newLib.valEmail("edward@ampedmedia.com"));
 
 //Problem 3 Call:
-console.log (newLib.valUrl("http://www.test@test.com"));
+console.log (newLib.valUrl("www.test.com"));
 
 //Problem 4 Call:
 console.log (newLib.splitTitleCase("scalable data infrastructures"));
@@ -127,7 +127,10 @@ console.log (newLib.numDecimals(2.1));
 console.log (newLib.fuzzMatch(10,20,10));
 
 //Problem 8 Call:
-newLib.daysUntil(new Date(2013, 01, 01));
+newLib.daysUntil(
+	new Date(2012, 09, 18),
+	new Date(2013, 09, 18)
+);
 
 //Problem 9 Call:
 console.log (newLib.retAsNum("42"));
