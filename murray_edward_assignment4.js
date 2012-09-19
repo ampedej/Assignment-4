@@ -44,9 +44,9 @@ var myLibrary = function(){
 	function splitTitleCase(string) {
     	var test = string.split(" ");
     		for(var i=0,l=test.length; i<l; i++) {
-	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : " "); // Not sure if the methods in this function make up for the points i lost on Project 3.
+	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : " "); // Not sure if the methods in this function make up for the points I lost on Project 3.
             };
-            return test.join("");
+            return test.join(" ");
     };
 	
 	//---String Problem 5 (5): Change seperator.
@@ -86,6 +86,9 @@ var myLibrary = function(){
 	    return convert;
     };
     
+    //---Array Problem 1 (10): Find the smallest value in an array that is greater than a given number.
+
+
 	//---Returns
 	return {
 		"valPhone": valPhone,
