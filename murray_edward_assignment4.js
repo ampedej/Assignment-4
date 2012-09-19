@@ -49,11 +49,19 @@ var myLibrary = function(){
             	return test.join("");
     };
 	
+	//String Problem 5: Change seperator.
+	function changeSep (seperator){
+		var test = seperator;
+		var newStr = test.replace (",", "/");
+		return newStr;
+		
+	};// Can't get function to replace all seperators.
 	return {
 		"valPhone": valPhone,
 		"valEmail": valEmail,
 		"valUrl": valUrl,
-		"splitTitleCase": splitTitleCase
+		"splitTitleCase": splitTitleCase,
+		"changeSep": changeSep
 	};	
 };
 
@@ -70,3 +78,6 @@ console.log (newLib.valUrl("http://www.test@test.com"));
 
 //Problem 4 Call:
 console.log (newLib.splitTitleCase("scalable data infrastructures"));
+
+//Problem 5 Call:
+console.log (newLib.changeSep("a,b,c"));
