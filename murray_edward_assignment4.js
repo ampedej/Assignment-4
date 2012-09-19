@@ -62,7 +62,7 @@ var myLibrary = function(){
 		return test;
 	};
 	
-	//Number Problem 2 (7): Fuzzy-match a number: is the number above or below a number within a certain percent?
+	//---Number Problem 2 (7): Fuzzy-match a number: is the number above or below a number within a certain percent?
 	function fuzzMatch (number,compare,percentage){
 		var test = (number/compare) * 100;
 			if ((number >= compare && test >= percentage) || (number < compare && test < percentage)){
@@ -72,13 +72,19 @@ var myLibrary = function(){
 			};
 	};
 	
-	//Number Problem 3 (8): Find the number of hours or days difference between two dates.
+	//---Number Problem 3 (8): Find the number of hours or days difference between two dates.
 	function daysUntil(date) {
     	var newYears = date;
     	today = new Date(2012, 9, 18);
     	var one_day = 1000 * 60 * 60 * 24;
     		console.log(Math.ceil((newYears.getTime() - today.getTime()) / (one_day)-3) + " days left until the New Year.");
     }; //Had to add in a -3 to the math because for some reason it was off by three days. Couldn't figure out why??
+    
+    //---Number Problem 4 (9): Given a string version of a number such as "42", return the value as an actual Number, such as 42.
+    function retAsNum (number){
+	    var convert  = parseInt(number);
+	    return convert;
+    };
     
 	//---Returns
 	return {
@@ -89,7 +95,8 @@ var myLibrary = function(){
 		"changeSep": changeSep,
 		"numDecimals": numDecimals,
 		"fuzzMatch": fuzzMatch,
-		"daysUntil": daysUntil
+		"daysUntil": daysUntil,
+		"retAsNum": retAsNum
 	};	
 };
 
@@ -118,3 +125,6 @@ console.log (newLib.fuzzMatch(10,20,10));
 
 //Problem 8 Call:
 newLib.daysUntil(new Date(2013, 01, 01));
+
+//Problem 9 Call:
+console.log (newLib.retAsNum("42"));
