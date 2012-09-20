@@ -6,6 +6,7 @@ Project 4
 JavaScript Library
 */
 
+//Makeup for entire code: Coding/Logic, Deliverable 3
 
 //JavaScript Library
 var myLibrary = function(){
@@ -41,7 +42,6 @@ var myLibrary = function(){
 	};
 	
 	//---String Problem 4 (4): Title-case a string.
-	//Makeup: methods, deliverable 3
 	function splitTitleCase(string) {
     	var test = string.split(" ");
     		for(var i=0,l=test.length; i<l; i++) {
@@ -80,7 +80,7 @@ var myLibrary = function(){
     	var today = date1,
     		compareDate = date2;
     	var one_day = 1000 * 60 * 60 * 24;
-    		console.log(Math.ceil((compareDate.getTime() - today.getTime()) / (one_day)));
+    		console.log(Math.ceil((compareDate.getTime() - today.getTime()) / (one_day)) + " Days");
     }; 
         
     //---Number Problem 4 (9): Given a string version of a number such as "42", return the value as an actual Number, such as 42.
@@ -93,7 +93,7 @@ var myLibrary = function(){
     var smValArray = function (array,givenNum, error) {
 		if (givenNum >= array[0] && givenNum < array[array.length-1]) {
 			array.push(givenNum);
-				array.sort(function(a,b){return a-b;});
+				array.sort(function(a,b){return a-b;}); //Makeup: coding/completeness(encapsulation), deliverable 3
 					var smValue = array[array.lastIndexOf(givenNum) + 1];
 			return smValue;
 		} else {
@@ -162,8 +162,8 @@ console.log (newLib.fuzzMatch(10,20,10));
 
 //Problem 8 Call:
 newLib.daysUntil(
-	new Date(2012, 09, 18),
-	new Date(2013, 09, 18)
+	new Date(2012, 09, 19),
+	new Date(2013, 09, 19)
 );
 
 //Problem 9 Call:
