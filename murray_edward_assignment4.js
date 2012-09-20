@@ -59,16 +59,16 @@ var myLibrary = function(){
 	
 	//---Number Problem 1 (6): Specific number of decimal places
 	function numDecimals (currency){
-		var test = currency.toFixed(2);
-		return test;
+		var decFixed = currency.toFixed(2);
+		return decFixed;
 	};
 	
 	//---Number Problem 2 (7): Fuzzy-match a number: is the number above or below a number within a certain percent?
 	//Makeup: Number conditional & math, deliverable 1
 	//Makeup: AND and OR operators, deliverable 2
 	function fuzzMatch (number,compare,percentage){
-		var test = (number/compare) * 100;
-			if ((number >= compare && test >= percentage) || (number < compare && test < percentage)){ 
+		var numCompare = (number/compare) * 100;
+			if ((number >= compare && numCompare >= percentage) || (number < compare && numCompare < percentage)){ 
 				return false;
 			} else {
 				return true;
