@@ -112,6 +112,13 @@ var myLibrary = function(){
 		};
 		return value;
 	};
+	
+	//---Array Problem 3 (12): Return the array sorted by the value of the key
+	function arrValSort (array, key){
+		var sortValues = array;
+		sortValues.sort(function(a,b){return a[key] - b[key]});
+		return sortValues;
+	};
 
 	//---Returns
 	return {
@@ -125,7 +132,8 @@ var myLibrary = function(){
 		"daysUntil": daysUntil,
 		"retAsNum": retAsNum,
 		"smValArray": smValArray,
-		"arrValNumber": arrValNumber
+		"arrValNumber": arrValNumber,
+		"arrValSort": arrValSort
 	};	
 };
 
@@ -165,4 +173,7 @@ console.log (newLib.retAsNum("42"));
 console.log (newLib.smValArray([6.8,6.9,7.1,7.2],7,"No Numbers Are Greater"));
 
 //Problem 11 Call:
-console.log (newLib.arrValNumber([5,10,"test1",15,20,"test2"]));
+console.log (newLib.arrValNumber([10,10,"test1",10,20,"test2", true]));
+
+//Problem 12 Call:
+console.log (newLib.arrValSort ([{a:2},{a:3},{a:1}],"a"));
