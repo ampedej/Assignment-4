@@ -100,6 +100,18 @@ var myLibrary = function(){
 			return error;
 		};
 	};
+	
+	//---Array Problem 2 (11): Find the total value of just the numbers in an array.
+	function arrValNumber(array){
+		value = 0;
+		for (var i = 0; i < array.length; i++){
+			var newValue = parseInt(array[i]);
+			if(!isNaN(newValue)){
+				value += newValue;
+			};
+		};
+		return value;
+	};
 
 	//---Returns
 	return {
@@ -112,7 +124,8 @@ var myLibrary = function(){
 		"fuzzMatch": fuzzMatch,
 		"daysUntil": daysUntil,
 		"retAsNum": retAsNum,
-		"smValArray": smValArray
+		"smValArray": smValArray,
+		"arrValNumber": arrValNumber
 	};	
 };
 
@@ -131,7 +144,7 @@ console.log (newLib.valUrl("http://www.test.com"));
 console.log (newLib.splitTitleCase("scalable data infrastructures"));
 
 //Problem 5 Call:
-console.log (newLib.changeSep("a,b,c", "/"));
+console.log (newLib.changeSep("a,b,c","/"));
 
 //Problem 6 Call:
 console.log (newLib.numDecimals(2.1));
@@ -149,4 +162,7 @@ newLib.daysUntil(
 console.log (newLib.retAsNum("42"));
 
 //Problem 10 Call:
-console.log (newLib.smValArray([6.8,6.9,7.1,7.2], 7, "No Numbers Are Greater"));
+console.log (newLib.smValArray([6.8,6.9,7.1,7.2],7,"No Numbers Are Greater"));
+
+//Problem 11 Call:
+console.log (newLib.arrValNumber([5,10,"test1",15,20,"test2"]));
