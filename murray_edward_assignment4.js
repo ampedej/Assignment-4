@@ -41,10 +41,11 @@ var myLibrary = function(){
 	};
 	
 	//---String Problem 4 (4): Title-case a string.
+	//Makeup: methods, deliverable 3
 	function splitTitleCase(string) {
     	var test = string.split(" ");
     		for(var i=0,l=test.length; i<l; i++) {
-	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : " ");//Makeup: methods, deliverable 3 
+	    		test[i] = test[i].substr(0,1).toUpperCase() + (test[i].length > 1 ? test[i].substr(1).toLowerCase() : " "); 
             };
             return test.join(" ");
     };
@@ -63,9 +64,11 @@ var myLibrary = function(){
 	};
 	
 	//---Number Problem 2 (7): Fuzzy-match a number: is the number above or below a number within a certain percent?
+	//Makeup: Number conditional & math, deliverable 1
+	//Makeup: AND and OR operators, deliverable 2
 	function fuzzMatch (number,compare,percentage){
 		var test = (number/compare) * 100;
-			if ((number >= compare && test >= percentage) || (number < compare && test < percentage)){
+			if ((number >= compare && test >= percentage) || (number < compare && test < percentage)){ 
 				return false;
 			} else {
 				return true;
@@ -78,8 +81,8 @@ var myLibrary = function(){
     		compareDate = date2;
     	var one_day = 1000 * 60 * 60 * 24;
     		console.log(Math.ceil((compareDate.getTime() - today.getTime()) / (one_day)));
-    }; //Had to add in a -3 to the math because for some reason it was off by three days. Couldn't figure out why??
-    
+    }; 
+        
     //---Number Problem 4 (9): Given a string version of a number such as "42", return the value as an actual Number, such as 42.
     function retAsNum (number){
 	    var convert  = parseInt(number);
@@ -87,7 +90,16 @@ var myLibrary = function(){
     };
     
     //---Array Problem 1 (10): Find the smallest value in an array that is greater than a given number.
-
+    var smValArray = function (array,givenNum, error) {
+		if (givenNum >= array[0] && givenNum < array[array.length-1]) {
+			array.push(givenNum);
+				array.sort(function(a,b){return a-b;});
+					var smValue = array[array.lastIndexOf(givenNum) + 1];
+			return smValue;
+		} else {
+			return error;
+		};
+	};
 
 	//---Returns
 	return {
@@ -99,7 +111,8 @@ var myLibrary = function(){
 		"numDecimals": numDecimals,
 		"fuzzMatch": fuzzMatch,
 		"daysUntil": daysUntil,
-		"retAsNum": retAsNum
+		"retAsNum": retAsNum,
+		"smValArray": smValArray
 	};	
 };
 
@@ -112,7 +125,7 @@ console.log (newLib.valPhone("3216524845"));
 console.log (newLib.valEmail("edward@ampedmedia.com"));
 
 //Problem 3 Call:
-console.log (newLib.valUrl("www.test.com"));
+console.log (newLib.valUrl("http://www.test.com"));
 
 //Problem 4 Call:
 console.log (newLib.splitTitleCase("scalable data infrastructures"));
@@ -134,3 +147,6 @@ newLib.daysUntil(
 
 //Problem 9 Call:
 console.log (newLib.retAsNum("42"));
+
+//Problem 10 Call:
+console.log (newLib.smValArray([6.8,6.9,7.1,7.2], 7, "No Numbers Are Greater"));
